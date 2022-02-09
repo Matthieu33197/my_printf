@@ -1,0 +1,49 @@
+##
+## EPITECH PROJECT, 2019
+## make
+## File description:
+## files
+##
+
+SRC	=	my_putchar.c			\
+		my_print_binary.c		\
+		my_print_octal.c		\
+		my_print_adress.c		\
+		my_intlen.c			\
+		my_hexa_min.c			\
+		my_print_oktal.c		\
+		my_print_hexa_maj.c		\
+		my_print_hexa_min.c		\
+		my_evil_str.c			\
+		my_strcat.c			\
+		my_printf.c			\
+		my_strcpy.c			\
+		my_put_nbr_usigned.c		\
+		my_put_nbr.c			\
+		my_putstr.c			\
+		my_revstr.c			\
+		my_strlen.c			\
+		my_swap.c
+
+OBJ	=	$(SRC:.c=.o)
+
+NAME	=	libmy.a
+
+all:	$(NAME)
+
+$(NAME):	$(OBJ)
+	ar rc $(NAME) $(OBJ)
+	cp $(NAME) ../
+	cp $(NAME) ../../
+	mkdir -p ../../include
+	cp my.h  ../../include/
+
+re:	fclean all
+
+clean:
+		rm  *.o
+
+fclean:		clean
+		rm $(NAME)
+		rm ../$(NAME)
+		rm ../../$(NAME)
